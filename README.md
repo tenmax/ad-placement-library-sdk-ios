@@ -1,0 +1,257 @@
+# TenMax Mobile SDK for iOS
+
+This repository provides the guideline and examples to demonstrate how to use TenMax Mobile SDK to show AD on your iOS app.
+
+## Prerequisites
+
+Before using the SDK, please contact TenMax (tenmax-eco-ssp-bd@tenmax.io) to
+
+- register you app bundle ID
+- obtain you app publisher ID
+
+The bundle ID and publisher ID would be used to initiate the SDK.
+
+## Installation
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the Xcode.
+
+#### Xcode Project Integration
+
+Go to `File > Add Package Dependencies...`, paste `https://github.com/tenmax/ad-placement-library-sdk-ios` into package URL. After the package is found, you can indicate the exact version of SDK. Then, click the `Add Package` to add the SDK package into your Xcode project.
+
+#### Swift Package Integration
+
+Adding TenMaxMobileAdsSDK as a dependency into the your `Package.swift` and indicating the SDK version.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/tenmax/ad-placement-library-sdk-ios", .upToNextMajor(from: "0.0.1"))
+]
+```
+
+Normally you'll need to add the `TenMaxMobileAdsSDK` target:
+
+```swift
+.product(name: "TenMaxMobileAdsSDK", package: "TenMaxMobileAdsSDK")
+```
+
+The Package.swift sample like this,
+
+```swift
+let package = Package(
+    name: "YourPackageName",
+    products: [
+        .library(name: "YourPackageName", targets: ["YourTargetName"]),
+    ],
+    dependencies: [
+      .package(url: "https://github.com/tenmax/ad-placement-library-sdk-ios", .upToNextMajor(from: "0.0.1"))
+    ],
+    targets: [
+        .target(
+            name: "YourTargetName",
+            dependencies: [
+              .product(name: "TenMaxMobileAdsSDK", package: "ad-placement-library-sdk-ios")
+            ],
+        ),
+    ]
+)
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate TenMaxMobileAdsSDK into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+binary "https://raw.githubusercontent.com/tenmax/ad-placement-library-sdk-ios/main/TenMaxMobileAdsSDK.json"
+```
+
+After Carthage downloaded the `TenMaxMobileAdsSDK.xcframework` file, you can found out the file in the folder `./Carthage/Build`. Make sure you have added `TenMaxMobileAdsSDK.xcframework` to the "Linked Frameworks and Libraries" section of your target.
+
+### SDK Configuration
+
+### SDK initiation
+
+TenMax Mobile SDK must be initiated before use, thus, we recommend you to initiate it in your `AppDelegate` class. The SDK would run the initiation in an independent thread pool so won't increase your application launch time.
+
+The publisher ID is provided by TenMax and the bundle ID must be the same as the value you registered in the [Prerequisites](#prerequisites) section.
+
+```swift
+import TenMaxMobileAdsSDK
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+      TenMaxMobileSDK.initiate(
+        configuration: .init(bundleId: "{bundle-id}", publisherId: "{publisher-id}")) { spaces, error in
+          if let error {
+              print (error)
+          } else {
+              print (spaces)
+          }
+      }
+    }
+}
+```
+
+If you do not initiate the SDK, every call to show ADs, the SDK would give you an error. The SDK initiation would load the AD information from the TenMax's server and try to obtain the iOS advertising ID (IDFA) for you. Now, you are ready to show AD.
+
+## Show ADs
+
+### Interstitial AD
+
+First, let show an interstitial AD (fullscreen AD) when you click the `Open Interstitial Ad` button. Assume your application's `HomeViewController` has three tabs: `InterstitialViewController`, `InlineBannerViewController`, and `ScreenBannerViewController`. In the `InterstitialViewController`, add following lines to show an interstitial AD when pressed the `Open Interstitial Ad` button:
+
+```swift
+import TenMaxMobileAdsSDK
+
+class InterstitialViewController: UIViewController {
+
+    private var tenMaxAd: TenMaxAd?
+
+    override func viewDidLoad() {
+      /** initialization for the OpenAD button */
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tenMaxAd = TenMaxMobileSDK.shared().interstitialAd(spaceId: "{interstitial-space-id}") { spaces, error in
+            if let error {
+                print (error)
+            } else {
+                print (spaces)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tenMaxAd?.dispose()
+    }
+    
+    @objc func openAd(_ sender: UIButton) {
+        tenMaxAd?.show()
+    }
+}
+
+```
+
+The AD presentation is asynchronous, thus, please keep the `TenMaxAdDisposable` object returned from the `interstitialAd` method. You can dispose (cancel) the presentation when the user switch to other tabs by calling `disposable.dipose()`. The SDK would cancel the presentation (if not presented yet) or remove the presentation and then clean up resources to reduce the memory usage.
+
+### Banner AD
+
+You can show a banner AD on top of the screen or bottom of the screen. Even more, you can show both top and bottom banner on the same screen. However, the relationship between the banner and your app's UI is up to you.
+
+You can call the `bannerAd` method to let SDK show the banner AD in the specified container.
+
+```swift
+import TenMaxMobileAdsSDK
+
+class ScreenBannerViewController: UIViewController {
+
+    private var screenTopAd: TenMaxAd?
+    
+    override func viewDidLoad() {
+      /** initialization for sub-views */
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        screenTopAd = TenMaxMobileSDK.shared().bannerAd(spaceId: "{banner-space-id}", on: view, at: .top)
+        screenTopAd?.show()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        screenTopAd?.dispose()
+    }
+}
+```
+
+The SDK would use this information to avoid duplication (see [Duplication Detection](#duplication-detection)).
+
+### Inline AD
+
+To embed an inline AD into your app, you need to add a container into your layout. The SDK process the AD view based on `Auto Layout` system, thus, you should provide the constraints to indicate the relationship between your UIs and AD container correctly.
+
+In your code, use the `inlineAd` method to embed the AD into the container. Then, the SDK would resize your container when the AD is loaded and ready to show.
+
+```swift
+import TenMaxMobileAdsSDK
+
+class InlineBannerViewController: UIViewController {
+
+    private let inlineAd = UIView()
+    private var tenMaxAd: TenMaxAd?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tenMaxAd = TenMaxMobileSDK.shared().inlineAd(spaceId: "{inline-space-id}", on: inlineAd)
+        tenMaxAd?.show()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tenMaxAd?.dispose()
+    }
+}
+```
+
+## Advanced topics
+
+### Timing and Naming Convention
+
+AD on different pages would have different prices. To collect needed information, TenMax Mobile SDK would monitor your application behavior. Thus, to avoid disturbing information collection, please follow these convention:
+
+- Always show ADs when or after the view will appear to ensure the size layout is already finished
+- Give unique name to the view controller that plays the role like a page, e.g., `InterstitialViewController`, `ScreenBannerViewController`, or `InlineBannerViewController` in the previous samples.
+
+If you do not follow the convention and SDK can not collect the correct information, the SDK would refuse to show AD in the unexpected case.
+
+### Callback and Delegate
+Each method that show AD has two optional parameters: delegate and callback. The callback would be called immediately when the specified space ID is found or something wrong happened. You can provide the callback to know what happened during the setup.
+
+You can provide the delegate to receive all the events of the entire presentation lifecycle. Here is a simple delegate to receive three important events:
+- `adViewableEventSent` - the user saw the AD for 1 second, and SDK would send viewable event to the TenMax server.
+- `adLoadingTimeout` - the AD loading timeout (maybe network is too slow) so the presentation is cancelled.
+- `adNotFound` - can not find an AD for the specified space so the presentation is cancelled.
+
+```swift
+class SessionDelegate: TenMaxAdSessionDelegate {
+  private let view: UIView
+
+  init(view: UIView) {
+    self.view = view
+  }
+  
+  func adViewableEventSent(_ session: TenMaxAdSession) {
+      view.makeToast("viewable event sent")
+  }
+
+  func adLoadingTimeout(_ session: TenMaxAdSession) {
+      view.makeToast("AD loading timeout")
+  }
+
+  func adNotFound(_ session: TenMaxAdSession) {
+      view.makeToast("received adNoFill event")
+  }
+}
+```
+
+### Duplication Detection
+
+For most of ADs, the presentation must be unique on page. Thus, TenMax Mobile SDK would track the presentation requests. If SDK found the duplication, it would show the warning message for the app developer to fix the case. Also, TenMax would review your app to ensure you follow TenMax's rules.
+
+## Issues and Contact
+
+If you have any issue when using TenMax Mobile SDK, please contact tenmax-eco-ssp-bd@tenmax.io. We would help you as soon as possible.
+
+## License
+
+TenMax
