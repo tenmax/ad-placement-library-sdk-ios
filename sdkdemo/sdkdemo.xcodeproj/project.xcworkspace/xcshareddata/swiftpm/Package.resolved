@@ -1,0 +1,24 @@
+{
+  "originHash" : "bcd84cdb7c9222d557f58d7aa91e3e424f126352f01c32cbb2095c30eceffe54",
+  "pins" : [
+    {
+      "identity" : "ad-placement-library-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tenmax/ad-placement-library-sdk-ios",
+      "state" : {
+        "revision" : "f853b153f37f728704a0f7a59e6818012c320a4f",
+        "version" : "0.0.1"
+      }
+    },
+    {
+      "identity" : "toast-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scalessec/Toast-Swift",
+      "state" : {
+        "revision" : "ddccd20d6fb718448d9b179c454c561653fda7d5",
+        "version" : "5.1.1"
+      }
+    }
+  ],
+  "version" : 3
+}
