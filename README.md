@@ -68,7 +68,24 @@ binary "https://raw.githubusercontent.com/tenmax/ad-placement-library-sdk-ios/ma
 
 After Carthage downloaded the `TenMaxMobileAdsSDK.xcframework` file, you can found out the file in the folder `./Carthage/Build`. Make sure you have added `TenMaxMobileAdsSDK.xcframework` to the "Linked Frameworks and Libraries" section of your target.
 
-### SDK Configuration
+## SDK Configuration
+
+### App Configuration
+
+Update your app's `info.plist` file to add `NSUserTrackingUsageDescription` key with a string value that will be showed on the dialog when user to request the app-tracking authorization.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Tracking usage description</string>
+	<key>UIApplicationSceneManifest</key>
+</dict>
+</plist>
+
+```
 
 ### SDK initiation
 
