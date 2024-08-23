@@ -34,6 +34,7 @@ class InterstitialViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        tenMaxAd?.dispose()
         tenMaxAd = TenMaxMobileSDK.shared().interstitialAd(spaceId: spaceId, self) { spaces, error in
             if let error {
                 print (error)
@@ -43,9 +44,7 @@ class InterstitialViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
+    deinit {
         tenMaxAd?.dispose()
     }
     
