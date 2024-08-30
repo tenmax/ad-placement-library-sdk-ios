@@ -18,7 +18,6 @@ class ScreenBannerViewController: UIViewController {
     private var webView: WKWebView!
     
     private var screenTopAd: TenMaxAd?
-    private var screenTopDuplicatedAd: TenMaxAd?
     private var screenBottomAd: TenMaxAd?
     
     override func viewDidLoad() {
@@ -43,11 +42,9 @@ class ScreenBannerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         screenTopAd = TenMaxMobileSDK.shared().bannerAd(spaceId: screenTopSpaceId, on: view, at: .top, self)
-        screenTopDuplicatedAd = TenMaxMobileSDK.shared().bannerAd(spaceId: screenTopSpaceId, on: view, at: .top, self)
         screenBottomAd = TenMaxMobileSDK.shared().bannerAd(spaceId: screenBottomSpaceId, on: view, at: .bottom, self)
         
         screenTopAd?.show()
-        screenTopDuplicatedAd?.show()
         screenBottomAd?.show()
     }
     
@@ -55,7 +52,6 @@ class ScreenBannerViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         screenTopAd?.dispose()
-        screenTopDuplicatedAd?.dispose()
         screenBottomAd?.dispose()
     }
 }

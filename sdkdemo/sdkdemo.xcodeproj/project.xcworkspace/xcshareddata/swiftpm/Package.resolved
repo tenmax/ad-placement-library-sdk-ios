@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tenmax/ad-placement-library-sdk-ios",
       "state" : {
-        "revision" : "b3d170cddcb89463b9099957731c595f00727133",
-        "version" : "0.0.3"
+        "revision" : "30446c90e44b6e10940f8689c32ff7cf0f5457fc",
+        "version" : "1.0.0"
       }
     },
     {

@@ -19,16 +19,10 @@ class InlineBannerViewController: UIViewController {
     private var water4: UIImageView!
     
     private var inlineAd1 = UIView()
-    private var inlineAd2 = UIView()
-    
     private var tenMaxAd: TenMaxAd?
-    private var duplicatedTenMaxAd: TenMaxAd?
     
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
-    
-    private var inlineAd1HeightConstraint: NSLayoutConstraint!
-    private var inlineAd2HeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +60,6 @@ class InlineBannerViewController: UIViewController {
         stackView.addArrangedSubview(inlineAd1)
         stackView.addArrangedSubview(water2)
         stackView.addArrangedSubview(water3)
-        stackView.addArrangedSubview(inlineAd2)
         stackView.addArrangedSubview(water4)
     }
     
@@ -74,17 +67,13 @@ class InlineBannerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         tenMaxAd = TenMaxMobileSDK.shared().inlineAd(spaceId: spaceId, on: inlineAd1, self)
-        duplicatedTenMaxAd = TenMaxMobileSDK.shared().inlineAd(spaceId: spaceId, on: inlineAd2, self)
-        
         tenMaxAd?.show()
-        duplicatedTenMaxAd?.show()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         tenMaxAd?.dispose()
-        duplicatedTenMaxAd?.dispose()
     }
     
     private func createImageView(named: String) -> UIImageView {
