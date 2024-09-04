@@ -4,7 +4,7 @@ This repository provides the guideline and examples to demonstrate how to use Te
 
 ## Prerequisites
 
-Before using the SDK, please contact TenMax (tenmax-eco-ssp-bd@tenmax.io) to
+Before using the SDK, please contact TenMax (app_support@tenmax.io) to
 
 - register you app bundle ID
 - obtain you app publisher ID
@@ -267,7 +267,7 @@ For most of ADs, the presentation must be unique on page. Thus, TenMax Mobile SD
 
 ## Issues and Contact
 
-If you have any issue when using TenMax Mobile SDK, please contact tenmax-eco-ssp-bd@tenmax.io. We would help you as soon as possible.
+If you have any issue when using TenMax Mobile SDK, please contact app_support@tenmax.io. We would help you as soon as possible.
 
 ## License
 
