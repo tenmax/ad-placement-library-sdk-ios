@@ -11,7 +11,7 @@ import Toast
 
 class InlineBannerViewController: UIViewController {
 
-    private let spaceId = "5508e386d26f4b52"
+    private let spaceId = DemoSettings.Space.inline.rawValue
     
     private var water1: UIImageView!
     private var water2: UIImageView!

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13, *) {
             // do only pure app launch stuff, not interface stuff
         } else {
-            TenMaxMobileSDK.initiate { spaces, error in
+            TenMaxMobileSDK.initiate(configuration: DemoSettings.configuration) { spaces, error in
                 if let error {
                     print (error)
                 } else {

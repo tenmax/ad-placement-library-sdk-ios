@@ -11,7 +11,7 @@ import Toast
 
 class InterstitialViewController: UIViewController {
 
-    private let spaceId = "a99bbda71a6f4fb2"
+    private let spaceId = DemoSettings.Space.interstitial.rawValue
     
     private var tenMaxAd: TenMaxAd?
     

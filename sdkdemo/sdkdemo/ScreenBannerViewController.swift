@@ -12,8 +12,8 @@ import Toast
 
 class ScreenBannerViewController: UIViewController {
 
-    private let screenTopSpaceId = "142f40b224cd48e6"
-    private let screenBottomSpaceId = "bc4f97b54f5c425b"
+    private let screenTopSpaceId = DemoSettings.Space.screenTop.rawValue
+    private let screenBottomSpaceId = DemoSettings.Space.screenBottom.rawValue
     
     private var webView: WKWebView!
     
