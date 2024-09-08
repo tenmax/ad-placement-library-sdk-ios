@@ -16,6 +16,7 @@
 		0942BBDF2C5699D100CC09F3 /* ScreenBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBDE2C5699D100CC09F3 /* ScreenBannerViewController.swift */; };
 		0942BBE12C6493AA00CC09F3 /* InlineBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */; };
 		0997245B2C77363B00A5EFFA /* TenMaxMobileAdsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0997245A2C77363B00A5EFFA /* TenMaxMobileAdsSDK */; };
+		09E046D32C8DA7F4007ED122 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E046D22C8DA7F4007ED122 /* DemoSettings.swift */; };
 		09EBD61B2C6A155700E5A806 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 09EBD61A2C6A155700E5A806 /* Toast */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		0942BBDC2C55509600CC09F3 /* InterstitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
 		0942BBDE2C5699D100CC09F3 /* ScreenBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBannerViewController.swift; sourceTree = "<group>"; };
 		0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineBannerViewController.swift; sourceTree = "<group>"; };
+		09E046D22C8DA7F4007ED122 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		0942BBBF2C553BBA00CC09F3 /* sdkdemo */ = {
 			isa = PBXGroup;
 			children = (
+				09E046D22C8DA7F4007ED122 /* DemoSettings.swift */,
 				0942BBC02C553BBA00CC09F3 /* AppDelegate.swift */,
 				0942BBC22C553BBA00CC09F3 /* SceneDelegate.swift */,
 				0942BBD62C553E5100CC09F3 /* HomeViewController.swift */,
@@ -183,6 +186,7 @@
 				0942BBC32C553BBA00CC09F3 /* SceneDelegate.swift in Sources */,
 				0942BBD72C553E5100CC09F3 /* HomeViewController.swift in Sources */,
 				0942BBDD2C55509600CC09F3 /* InterstitialViewController.swift in Sources */,
+				09E046D32C8DA7F4007ED122 /* DemoSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,10 +330,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sdkdemo/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "App Tracking Usage";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -339,8 +344,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo;
+				MARKETING_VERSION = 1.7;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.public;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -360,10 +365,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sdkdemo/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "App Tracking Usage";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -373,8 +379,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo;
+				MARKETING_VERSION = 1.7;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.public;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TenMax-Debugging";
@@ -417,7 +423,7 @@
 			repositoryURL = "https://github.com/tenmax/ad-placement-library-sdk-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = 1.0.2;
 			};
 		};
 		09EBD6192C6A155700E5A806 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
