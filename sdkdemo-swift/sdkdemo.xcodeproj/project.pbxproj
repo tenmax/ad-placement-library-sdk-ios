@@ -383,7 +383,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.public;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TenMax-Debugging";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -422,8 +421,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tenmax/ad-placement-library-sdk-ios";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.2;
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		09EBD6192C6A155700E5A806 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
