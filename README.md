@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       TenMaxMobileSDK.initiate(
-        configuration: .init(bundleId: "{bundle-id}", publisherId: "{publisher-id}")) { spaces, error in
+        configuration: .init(publisherId: "{publisher-id}")) { spaces, error in
           if let error {
               print (error)
           } else {
