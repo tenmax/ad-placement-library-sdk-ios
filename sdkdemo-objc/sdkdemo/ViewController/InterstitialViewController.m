@@ -6,15 +6,14 @@
 //
 
 #import "InterstitialViewController.h"
+#import "../DemoSettings.h"
 #import "sdkdemo-Swift.h"
 
 @import TenMaxMobileAdsSDK;
 
 @interface InterstitialViewController () <TenMaxAdSessionDelegate>
-
-@property (nonatomic, strong) NSString *spaceId;
 @property (nonatomic, strong) TenMaxAd *tenMaxAd;
-
+@property (nonatomic, strong) NSString *spaceId;
 @end
 
 @implementation InterstitialViewController
@@ -71,7 +70,7 @@
 #pragma mark - TenMaxAdSessionDelegate
 
 - (void)adViewableEventSent:(TenMaxAdSession *)session {
-//    [self.view makeToast:[NSString stringWithFormat:@"viewable event sent (space id: %@)", session.space.spaceId]];
+    [self makeToastWithText:[NSString stringWithFormat:@"viewable event sent (space id: %@)", session.space.spaceId]];
 }
 
 @end

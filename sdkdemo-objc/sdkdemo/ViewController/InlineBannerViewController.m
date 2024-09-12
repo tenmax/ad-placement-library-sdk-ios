@@ -6,6 +6,7 @@
 //
 
 #import "InlineBannerViewController.h"
+#import "../DemoSettings.h"
 #import "sdkdemo-Swift.h"
 
 @import TenMaxMobileAdsSDK;
@@ -67,6 +68,7 @@
     [super viewWillAppear:animated];
     
     self.tenMaxAd = [TenMaxMobileSDK.shared inlineAdWithSpaceId:self.spaceId on:self.inlineAd1 :self :nil];
+    
     [self.tenMaxAd show];
 }
 

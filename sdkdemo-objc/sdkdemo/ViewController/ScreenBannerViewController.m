@@ -6,6 +6,7 @@
 //
 
 #import "ScreenBannerViewController.h"
+#import "../DemoSettings.h"
 #import "sdkdemo-Swift.h"
 
 #import <WebKit/WebKit.h>
@@ -16,7 +17,6 @@
 
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) TenMaxAd *screenTopAd;
-@property (nonatomic, strong) TenMaxAd *screenTopDuplicatedAd;
 @property (nonatomic, strong) TenMaxAd *screenBottomAd;
 @property (nonatomic, copy) NSString *screenTopSpaceId;
 @property (nonatomic, copy) NSString *screenBottomSpaceId;

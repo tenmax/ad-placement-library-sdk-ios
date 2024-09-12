@@ -1,13 +1,13 @@
 {
-  "originHash" : "bcd84cdb7c9222d557f58d7aa91e3e424f126352f01c32cbb2095c30eceffe54",
+  "originHash" : "f78d33c529cfb7700ce387348f328c010e6f60ea2c0355c25a6a8d9456e9759f",
   "pins" : [
     {
       "identity" : "ad-placement-library-sdk-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tenmax/ad-placement-library-sdk-ios",
       "state" : {
-        "revision" : "733b473a61d29a6a76bec17a293467152a8e4344",
-        "version" : "1.0.4"
+        "revision" : "f02c843d87c7280fa876032d1b54f3893f3397b1",
+        "version" : "1.0.5"
       }
     },
     {

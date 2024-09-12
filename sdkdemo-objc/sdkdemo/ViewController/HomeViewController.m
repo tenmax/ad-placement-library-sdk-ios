@@ -4,6 +4,9 @@
 //
 //  Created by Picker Weng on 2024/9/11.
 //
+
+#import <Foundation/Foundation.h>
+
 #import "HomeViewController.h"
 #import "InterstitialViewController.h"
 #import "InlineBannerViewController.h"
@@ -16,16 +19,31 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    InterstitialViewController *firstVC = [[InterstitialViewController alloc] init];
-    firstVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Intersitial" image:[UIImage imageNamed:@"home"] tag:0];
+    NSArray *viewControllers = @[
+        [self createViewController:[[InterstitialViewController alloc] init] title:@"Interstitial" imageName:@"home" tag:0],
+        [self createViewController:[[InlineBannerViewController alloc] init] title:@"Inline" imageName:@"favorite" tag:1],
+        [self createViewController:[[ScreenBannerViewController alloc] init] title:@"Top & Bottom" imageName:@"dataset" tag:2]
+    ];
     
-    InlineBannerViewController *secondVC = [[InlineBannerViewController alloc] init];
-    secondVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Inline" image:[UIImage imageNamed:@"favorite"] tag:1];
+    self.viewControllers = viewControllers;
     
-    ScreenBannerViewController *thirdVC = [[ScreenBannerViewController alloc] init];
-    thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Top & Bottom" image:[UIImage imageNamed:@"dataset"] tag:2];
+    // Debug: Print the number of view controllers
+    NSLog(@"Number of view controllers: %lu", (unsigned long)self.viewControllers.count);
     
-    self.viewControllers = @[firstVC, secondVC, thirdVC];
+    // Debug: Check if tabBar is hidden
+    NSLog(@"TabBar is hidden: %@", self.tabBar.isHidden ? @"Yes" : @"No");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Debug: Check which view controller is currently visible
+    NSLog(@"Current visible view controller: %@", NSStringFromClass([self.selectedViewController class]));
+}
+
+- (UIViewController *)createViewController:(UIViewController *)viewController title:(NSString *)title imageName:(NSString *)imageName tag:(NSInteger)tag {
+    viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:imageName] tag:tag];
+    return viewController;
 }
 
 @end
