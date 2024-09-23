@@ -265,6 +265,10 @@ class SessionDelegate: TenMaxAdSessionDelegate {
 
 For most of ADs, the presentation must be unique on page. Thus, TenMax Mobile SDK would track the presentation requests. If SDK found the duplication, it would show the warning message for the app developer to fix the case. Also, TenMax would review your app to ensure you follow TenMax's rules.
 
+## Apple Privacy Survey for TenMax SDK
+
+iOS publisher should provide the information that data their apps collect, including the data collected by third-party SDKs. For your convenience, TenMax SDK provides the information on its data collection in the [Apple Privacy Survey for TenMax SDK](Privacy.md).
+
 ## Issues and Contact
 
 If you have any issue when using TenMax Mobile SDK, please contact app_support@tenmax.io. We would help you as soon as possible.
