@@ -273,6 +273,10 @@ iOS publisher should provide the information that data their apps collect, inclu
 
 If you have any issue when using TenMax Mobile SDK, please contact app_support@tenmax.io. We would help you as soon as possible.
 
+## User Data Deletion Notice
+
+For requests to delete the privacy data linked to users, please submit the request via [User Data Deletion Notice Form](https://forms.office.com/r/SnU40q6VmQ).
+
 ## License
 
 TenMax
