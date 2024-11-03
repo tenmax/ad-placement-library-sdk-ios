@@ -17,8 +17,8 @@
 		0942BBE12C6493AA00CC09F3 /* InlineBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */; };
 		0988C9FE2CD693DB00B54317 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988C9FD2CD693DB00B54317 /* UIColor+Utils.swift */; };
 		0988CA002CD6966D00B54317 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988C9FF2CD6966D00B54317 /* UIImageView+Utils.swift */; };
-		0988CA022CD69A3100B54317 /* ScreenBottomBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988CA012CD69A3100B54317 /* ScreenBottomBannerViewController.swift */; };
-		0988CA5C2CD6A71200B54317 /* ScreenBottomBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988CA012CD69A3100B54317 /* ScreenBottomBannerViewController.swift */; };
+		0988CA022CD69A3100B54317 /* ScreenBannerBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988CA012CD69A3100B54317 /* ScreenBannerBottomViewController.swift */; };
+		0988CA5C2CD6A71200B54317 /* ScreenBannerBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988CA012CD69A3100B54317 /* ScreenBannerBottomViewController.swift */; };
 		0988CA5D2CD6A71200B54317 /* InlineBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */; };
 		0988CA5E2CD6A71200B54317 /* ScreenBannerTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBDE2C5699D100CC09F3 /* ScreenBannerTopViewController.swift */; };
 		0988CA5F2CD6A71200B54317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBC02C553BBA00CC09F3 /* AppDelegate.swift */; };
@@ -32,7 +32,7 @@
 		0988CA682CD6A71200B54317 /* TenMaxMobileAdsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0988CA592CD6A71200B54317 /* TenMaxMobileAdsSDK */; };
 		0988CA6A2CD6A71200B54317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0942BBC92C553BBB00CC09F3 /* Assets.xcassets */; };
 		0988CA6B2CD6A71200B54317 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0942BBCC2C553BBB00CC09F3 /* Base */; };
-		0988CA932CD6A81D00B54317 /* ScreenBottomBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988CA012CD69A3100B54317 /* ScreenBottomBannerViewController.swift */; };
+		0988CA932CD6A81D00B54317 /* ScreenBannerBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0988CA012CD69A3100B54317 /* ScreenBannerBottomViewController.swift */; };
 		0988CA942CD6A81D00B54317 /* InlineBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */; };
 		0988CA952CD6A81D00B54317 /* ScreenBannerTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBDE2C5699D100CC09F3 /* ScreenBannerTopViewController.swift */; };
 		0988CA962CD6A81D00B54317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942BBC02C553BBA00CC09F3 /* AppDelegate.swift */; };
@@ -100,7 +100,7 @@
 		0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineBannerViewController.swift; sourceTree = "<group>"; };
 		0988C9FD2CD693DB00B54317 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		0988C9FF2CD6966D00B54317 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
-		0988CA012CD69A3100B54317 /* ScreenBottomBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBottomBannerViewController.swift; sourceTree = "<group>"; };
+		0988CA012CD69A3100B54317 /* ScreenBannerBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBannerBottomViewController.swift; sourceTree = "<group>"; };
 		0988CA702CD6A71200B54317 /* com.tenmax.sdkdemo.internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.tenmax.sdkdemo.internal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0988CA712CD6A71200B54317 /* com.tenmax.sdkdemo.internal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "com.tenmax.sdkdemo.internal-Info.plist"; path = "/Users/pickerweng/Workspace/tenmax/tenmax-mobileads-ios-sdk-public/sdkdemo-swift/com.tenmax.sdkdemo.internal-Info.plist"; sourceTree = "<absolute>"; };
 		0988CAA72CD6A81D00B54317 /* com.tenmax.sdkdemo.cht.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.tenmax.sdkdemo.cht.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +171,7 @@
 				0942BBDC2C55509600CC09F3 /* InterstitialViewController.swift */,
 				0942BBE02C6493AA00CC09F3 /* InlineBannerViewController.swift */,
 				0942BBDE2C5699D100CC09F3 /* ScreenBannerTopViewController.swift */,
-				0988CA012CD69A3100B54317 /* ScreenBottomBannerViewController.swift */,
+				0988CA012CD69A3100B54317 /* ScreenBannerBottomViewController.swift */,
 				0942BBC92C553BBB00CC09F3 /* Assets.xcassets */,
 				0942BBCB2C553BBB00CC09F3 /* LaunchScreen.storyboard */,
 			);
@@ -348,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0988CA022CD69A3100B54317 /* ScreenBottomBannerViewController.swift in Sources */,
+				0988CA022CD69A3100B54317 /* ScreenBannerBottomViewController.swift in Sources */,
 				0942BBE12C6493AA00CC09F3 /* InlineBannerViewController.swift in Sources */,
 				0942BBDF2C5699D100CC09F3 /* ScreenBannerTopViewController.swift in Sources */,
 				0942BBC12C553BBA00CC09F3 /* AppDelegate.swift in Sources */,
@@ -366,7 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0988CA5C2CD6A71200B54317 /* ScreenBottomBannerViewController.swift in Sources */,
+				0988CA5C2CD6A71200B54317 /* ScreenBannerBottomViewController.swift in Sources */,
 				0988CA5D2CD6A71200B54317 /* InlineBannerViewController.swift in Sources */,
 				0988CA5E2CD6A71200B54317 /* ScreenBannerTopViewController.swift in Sources */,
 				0988CA5F2CD6A71200B54317 /* AppDelegate.swift in Sources */,
@@ -384,7 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0988CA932CD6A81D00B54317 /* ScreenBottomBannerViewController.swift in Sources */,
+				0988CA932CD6A81D00B54317 /* ScreenBannerBottomViewController.swift in Sources */,
 				0988CA942CD6A81D00B54317 /* InlineBannerViewController.swift in Sources */,
 				0988CA952CD6A81D00B54317 /* ScreenBannerTopViewController.swift in Sources */,
 				0988CA962CD6A81D00B54317 /* AppDelegate.swift in Sources */,
@@ -538,8 +538,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 992GT7RJ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sdkdemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "外部展示 APP";
@@ -553,7 +553,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.public;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -574,8 +574,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 992GT7RJ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sdkdemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "外部展示 APP";
@@ -589,7 +589,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.public;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -610,8 +610,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 992GT7RJ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "com.tenmax.sdkdemo.internal-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "內部展示 APP";
@@ -625,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.internal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,8 +646,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 992GT7RJ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "com.tenmax.sdkdemo.internal-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "內部展示 APP";
@@ -661,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.internal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -682,8 +682,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 992GT7RJ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "com.tenmax.sdkdemo.cht-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "中華電信 APP";
@@ -697,7 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.cht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -718,8 +718,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 992GT7RJ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "com.tenmax.sdkdemo.cht-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "中華電信 APP";
@@ -733,7 +733,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tenmax.sdkdemo.cht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

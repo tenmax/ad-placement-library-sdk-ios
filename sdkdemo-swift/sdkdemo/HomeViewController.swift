@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func toScreenBottomAd() {
-        let vc = ScreenBottomBannerViewController()
+        let vc = ScreenBannerBottomViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

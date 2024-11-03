@@ -1,5 +1,5 @@
 //
-//  ScreenBottomBannerViewController.swift
+//  ScreenBannerBottomViewController.swift
 //  sdkdemo
 //
 //  Created by Picker Weng on 2024/11/3.
@@ -10,7 +10,7 @@ import WebKit
 import TenMaxMobileAdsSDK
 import Toast
 
-class ScreenBottomBannerViewController: UIViewController {
+class ScreenBannerBottomViewController: UIViewController {
 
     private let spaceId = DemoSettings.spaceId(of: DemoSettings.Space.screenBottom)
     
@@ -75,7 +75,7 @@ class ScreenBottomBannerViewController: UIViewController {
     }
 }
 
-extension ScreenBottomBannerViewController: TenMaxAdSessionDelegate {
+extension ScreenBannerBottomViewController: TenMaxAdSessionDelegate {
     func adViewableEventSent(_ session: TenMaxAdSession) {
         view.makeToast("viewable event sent (space id: \(session.space.spaceId)")
     }
