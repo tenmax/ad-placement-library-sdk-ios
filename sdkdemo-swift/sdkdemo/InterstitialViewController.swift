@@ -11,28 +11,52 @@ import Toast
 
 class InterstitialViewController: UIViewController {
 
-    private let spaceId = DemoSettings.Space.interstitial.rawValue
+    private let spaceId = DemoSettings.spaceId(of: DemoSettings.Space.interstitial)
+    
+    private var water1: UIImageView!
+    private var water2: UIImageView!
+    private var water3: UIImageView!
+    private var water4: UIImageView!
+    private let scrollView = UIScrollView()
+    private let stackView = UIStackView()
     
     private var tenMaxAd: TenMaxAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         
-        let button = createButton(title: "Open Interstitial Ad", color: .orange, action: #selector(openAd(_:)))
-        button.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
         
-        view.addSubview(button)
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .equalSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalToConstant: 240),
-            button.heightAnchor.constraint(equalToConstant: 40),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -20)
         ])
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        water1 = UIImageView.create(named: "water1")
+        water2 = UIImageView.create(named: "water2")
+        water3 = UIImageView.create(named: "water3")
+        water4 = UIImageView.create(named: "water4")
+        
+        stackView.addArrangedSubview(water1)
+        stackView.addArrangedSubview(water2)
+        stackView.addArrangedSubview(water3)
+        stackView.addArrangedSubview(water4)
         
         tenMaxAd?.dispose()
         tenMaxAd = TenMaxMobileSDK.shared().interstitialAd(spaceId: spaceId, self) { spaces, error in
@@ -42,6 +66,7 @@ class InterstitialViewController: UIViewController {
                 print (spaces)
             }
         }
+        tenMaxAd?.show()
     }
     
     deinit {
@@ -50,16 +75,6 @@ class InterstitialViewController: UIViewController {
     
     @objc func openAd(_ sender: UIButton) {
         tenMaxAd?.show()
-    }
-    
-    func createButton(title: String, color: UIColor, action: Selector) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setTitle(title, for: .normal)
-        button.backgroundColor = color
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: action, for: .touchUpInside)
-        return button
     }
 }
 

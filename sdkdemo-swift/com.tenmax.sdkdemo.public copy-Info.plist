@@ -2,21 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ServiceIds</key>
-	<dict>
-		<key>FloatingAd</key>
-		<string>272ab27bf41940db</string>
-		<key>InlineAd</key>
-		<string>7ae4f7cd01c64629</string>
-		<key>InterstitialAd</key>
-		<string>3f8e54ea2c4549d0</string>
-		<key>PublisherId</key>
-		<string>0fe5b5e7c1</string>
-		<key>ScreenBottomAd</key>
-		<string>059d401c74754687</string>
-		<key>ScreenTopAd</key>
-		<string>12b441e7abce4bb4</string>
-	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -5,17 +5,17 @@
 	<key>ServiceIds</key>
 	<dict>
 		<key>FloatingAd</key>
-		<string>272ab27bf41940db</string>
+		<string>54b9311b6df44af6</string>
 		<key>InlineAd</key>
-		<string>7ae4f7cd01c64629</string>
+		<string>700e30150dd44505</string>
 		<key>InterstitialAd</key>
-		<string>3f8e54ea2c4549d0</string>
+		<string>511497d8085d412a</string>
 		<key>PublisherId</key>
-		<string>0fe5b5e7c1</string>
+		<string>7ac1ab497e</string>
 		<key>ScreenBottomAd</key>
-		<string>059d401c74754687</string>
+		<string>13cfc22345024016</string>
 		<key>ScreenTopAd</key>
-		<string>12b441e7abce4bb4</string>
+		<string>87135de0ef874e55</string>
 	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

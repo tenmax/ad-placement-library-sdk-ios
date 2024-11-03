@@ -25,9 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
             
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = HomeViewController()
-            window?.makeKeyAndVisible()
+            UINavigationBar.appearance().barTintColor = .main
+            UINavigationBar.appearance().tintColor = .white
+            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().isTranslucent = false
+            
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            let homeVC = HomeViewController()
+            let navigationController = UINavigationController(rootViewController: homeVC)
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+            
+            self.window = window
         }
         return true
     }
