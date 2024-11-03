@@ -8,16 +8,27 @@
 import TenMaxMobileAdsSDK
 
 struct DemoSettings {
-    private static let publisherId = "0fe5b5e7c1"
+    private static let publisherId = ServiceIds.publisherId
     
-    enum Space: String {
-        case interstitial = "3f8e54ea2c4549d0"
-        case inline = "7ae4f7cd01c64629"
-        case screenTop = "12b441e7abce4bb4"
-        case screenBottom = "059d401c74754687"
+    enum Space {
+        case interstitial
+        case inline
+        case screenTop
+        case screenBottom
     }
+    
+    static let SpaceIds: [Space:String] = [
+        Space.interstitial: ServiceIds.interstitialAd,
+        Space.inline: ServiceIds.inlineAd,
+        Space.screenTop: ServiceIds.screenTopAd,
+        Space.screenBottom: ServiceIds.screenBottomAd,
+    ]
     
     static var configuration: TenMaxMobileSDK.Configuration {
         .init(publisherId: publisherId)
+    }
+    
+    static func spaceId(of adSpace: Space) -> String {
+        SpaceIds[adSpace] ?? ""
     }
 }

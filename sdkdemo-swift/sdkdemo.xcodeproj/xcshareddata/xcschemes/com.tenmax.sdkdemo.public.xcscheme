@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0942BBBC2C553BBA00CC09F3"
-               BuildableName = "sdkdemo.app"
-               BlueprintName = "sdkdemo"
+               BuildableName = "com.tenmax.sdkdemo.public.app"
+               BlueprintName = "com.tenmax.sdkdemo.public"
                ReferencedContainer = "container:sdkdemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0942BBBC2C553BBA00CC09F3"
-            BuildableName = "sdkdemo.app"
-            BlueprintName = "sdkdemo"
+            BuildableName = "com.tenmax.sdkdemo.public.app"
+            BlueprintName = "com.tenmax.sdkdemo.public"
             ReferencedContainer = "container:sdkdemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0942BBBC2C553BBA00CC09F3"
-            BuildableName = "sdkdemo.app"
-            BlueprintName = "sdkdemo"
+            BuildableName = "com.tenmax.sdkdemo.public.app"
+            BlueprintName = "com.tenmax.sdkdemo.public"
             ReferencedContainer = "container:sdkdemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

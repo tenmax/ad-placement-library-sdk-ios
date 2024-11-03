@@ -1,28 +1,27 @@
 //
-//  InlineBannerViewController.swift
+//  ScreenTopBannerViewController.swift
 //  sdkdemo
 //
-//  Created by Picker Weng on 2024/8/8.
+//  Created by Picker Weng on 2024/7/28.
 //
 
 import UIKit
+import WebKit
 import TenMaxMobileAdsSDK
 import Toast
 
-class InlineBannerViewController: UIViewController {
+class ScreenTopBannerViewController: UIViewController {
 
-    private let spaceId = DemoSettings.spaceId(of: DemoSettings.Space.inline)
+    private let spaceId = DemoSettings.spaceId(of: DemoSettings.Space.screenTop)
     
     private var water1: UIImageView!
     private var water2: UIImageView!
     private var water3: UIImageView!
     private var water4: UIImageView!
-    
-    private var inlineAd1 = UIView()
-    private var tenMaxAd: TenMaxAd?
-    
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
+    
+    private var tenMaxAd: TenMaxAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,6 @@ class InlineBannerViewController: UIViewController {
         water4 = UIImageView.create(named: "water4")
         
         stackView.addArrangedSubview(water1)
-        stackView.addArrangedSubview(inlineAd1)
         stackView.addArrangedSubview(water2)
         stackView.addArrangedSubview(water3)
         stackView.addArrangedSubview(water4)
@@ -66,7 +64,7 @@ class InlineBannerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tenMaxAd = TenMaxMobileSDK.shared().inlineAd(spaceId: spaceId, on: inlineAd1, self)
+        tenMaxAd = TenMaxMobileSDK.shared().bannerAd(spaceId: spaceId, on: view, at: .top, self)
         tenMaxAd?.show()
     }
     
@@ -75,15 +73,9 @@ class InlineBannerViewController: UIViewController {
         
         tenMaxAd?.dispose()
     }
-    
-    private func configureInlineAd(_ inlineAd: UIView, heightConstraint: inout NSLayoutConstraint?) {
-        inlineAd.translatesAutoresizingMaskIntoConstraints = false
-        heightConstraint = inlineAd.heightAnchor.constraint(equalToConstant: 250)
-        heightConstraint?.isActive = true
-    }
 }
 
-extension InlineBannerViewController: TenMaxAdSessionDelegate {
+extension ScreenTopBannerViewController: TenMaxAdSessionDelegate {
     func adViewableEventSent(_ session: TenMaxAdSession) {
         view.makeToast("viewable event sent (space id: \(session.space.spaceId)")
     }

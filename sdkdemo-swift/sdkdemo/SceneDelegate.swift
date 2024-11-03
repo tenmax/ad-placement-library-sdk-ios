@@ -14,19 +14,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let windowScene = scene as? UIWindowScene {
-            TenMaxMobileSDK.initiate(configuration: DemoSettings.configuration) { spaces, error in
-                if let error {
-                    print (error)
-                } else {
-                    print (spaces)
-                }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        TenMaxMobileSDK.initiate(configuration: DemoSettings.configuration) { spaces, error in
+            if let error {
+                print (error)
+            } else {
+                print (spaces)
             }
-            
-            self.window = UIWindow(windowScene: windowScene)
-            self.window!.rootViewController = HomeViewController()
-            self.window!.makeKeyAndVisible()
         }
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .main
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        let barButtonAppearance = UIBarButtonItemAppearance()
+        barButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.buttonAppearance = barButtonAppearance
+        appearance.backButtonAppearance = barButtonAppearance
+
+        appearance.setBackIndicatorImage(
+           UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal),
+           transitionMaskImage: UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        )
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().tintColor = .white
+        
+        let window = UIWindow(windowScene: windowScene)
+        let homeVC = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: homeVC)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
