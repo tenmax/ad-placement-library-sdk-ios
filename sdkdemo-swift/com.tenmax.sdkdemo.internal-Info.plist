@@ -2,20 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ServiceIds</key>
+	<key>TenMax SDK Configuration</key>
 	<dict>
-		<key>FloatingAd</key>
-		<string>aab2ac22b5054b79</string>
-		<key>InlineAd</key>
-		<string>f7a5d01133ef4c07</string>
-		<key>InterstitialAd</key>
-		<string>77e9e6a018c14226</string>
-		<key>PublisherId</key>
+		<key>AdSpace Identifiers</key>
+		<dict>
+			<key>floating</key>
+			<string>aab2ac22b5054b79</string>
+			<key>inline</key>
+			<string>f7a5d01133ef4c07</string>
+			<key>interstitial</key>
+			<string>77e9e6a018c14226</string>
+			<key>screenBottom</key>
+			<string>c678e2d1b5c94342</string>
+			<key>screenTop</key>
+			<string>cc03936e9d994f31</string>
+		</dict>
+		<key>Publisher Identifier</key>
 		<string>3a915e28ca</string>
-		<key>ScreenBottomAd</key>
-		<string>c678e2d1b5c94342</string>
-		<key>ScreenTopAd</key>
-		<string>cc03936e9d994f31</string>
 	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

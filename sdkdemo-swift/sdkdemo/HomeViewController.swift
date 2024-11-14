@@ -4,9 +4,19 @@
 //
 //  Created by Picker Weng on 2024/7/27.
 //
+
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    private let testCases: [(String, Selector)] = [
+        ("INTERSTITIAL AD", #selector(toInterstitialAd)),
+        ("AUTO-RESIZING INLINE AD", #selector(toAutoResizeInlineAd)),
+        ("ASPECT-FILLING INLINE AD", #selector(toAspectFillInlineAd)),
+        ("SCREEN TOP AD", #selector(toScreenTopBannerAd)),
+        ("SCREEN BOTTOM AD", #selector(toScreenBottomBannerAd)),
+        ("FLOATING AD", #selector(toFloatingAd)),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,59 +31,55 @@ class HomeViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
-        let interstitialButton = UIButton(type: .custom)
-        interstitialButton.backgroundColor = .purple
-        interstitialButton.setTitle("SHOW INTERSTITIAL AD", for: .normal)
-        interstitialButton.addTarget(self, action: #selector(toInterstitialAd), for: .touchUpInside)
-        interstitialButton.applyCustomStyle()
-        
-        let inlineButton = UIButton(type: .custom)
-        inlineButton.setTitle("SHOW INLINE AD", for: .normal)
-        inlineButton.addTarget(self, action: #selector(toInlineAd), for: .touchUpInside)
-        inlineButton.applyCustomStyle()
-        
-        let screenTopButton = UIButton(type: .custom)
-        screenTopButton.setTitle("SHOW SCREEN TOP AD", for: .normal)
-        screenTopButton.addTarget(self, action: #selector(toScreenTopAd), for: .touchUpInside)
-        screenTopButton.applyCustomStyle()
-        
-        let screenBottomButton = UIButton(type: .custom)
-        screenBottomButton.setTitle("SHOW SCREEN BOTTOM AD", for: .normal)
-        screenBottomButton.addTarget(self, action: #selector(toScreenBottomAd), for: .touchUpInside)
-        screenBottomButton.applyCustomStyle()
-        
-        stackView.addArrangedSubview(interstitialButton)
-        stackView.addArrangedSubview(inlineButton)
-        stackView.addArrangedSubview(screenTopButton)
-        stackView.addArrangedSubview(screenBottomButton)
+        testCases.forEach {
+            let button = createTestCaseAction(for: $0, action: $1)
+            stackView.addArrangedSubview(button)
+        }
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
-    
-    @objc private func toInterstitialAd() {
-        let vc = InterstitialViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc private func toInlineAd() {
-        let vc = InlineBannerViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc private func toScreenTopAd() {
-        let vc = ScreenTopBannerViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc private func toScreenBottomAd() {
-        let vc = ScreenBannerBottomViewController()
-        navigationController?.pushViewController(vc, animated: true)
+}
+
+private
+extension HomeViewController {
+    func createTestCaseAction(for name: String, action: Selector) -> UIButton {
+        let actionButton = UIButton(type: .custom)
+        actionButton.backgroundColor = .purple
+        actionButton.setTitle(name, for: .normal)
+        actionButton.addTarget(self, action: action, for: .touchUpInside)
+        actionButton.applyCustomStyle()
+        return actionButton
     }
 }
 
+extension HomeViewController {
+    @objc private func toInterstitialAd() {
+        navigationController?.pushViewController(InterstitialViewController(), animated: true)
+    }
+    
+    @objc private func toAutoResizeInlineAd() {
+        navigationController?.pushViewController(InlineBannerAdAutoResizeViewController(), animated: true)
+    }
+    
+    @objc private func toAspectFillInlineAd() {
+        navigationController?.pushViewController(InlineBannerAdAspectFilliViewController(), animated: true)
+    }
+    
+    @objc private func toScreenTopBannerAd() {
+        navigationController?.pushViewController(ScreenTopBannerViewController(), animated: true)
+    }
+    
+    @objc private func toScreenBottomBannerAd() {
+        navigationController?.pushViewController(ScreenBannerBottomViewController(), animated: true)
+    }
+    
+    @objc private func toFloatingAd() {
+        navigationController?.pushViewController(FloatingAdViewController(), animated: true)
+    }
+}
 extension UIButton {
     func applyCustomStyle() {
         backgroundColor = .main

@@ -12,7 +12,7 @@ import Toast
 
 class ScreenBannerBottomViewController: UIViewController {
 
-    private let spaceId = DemoSettings.spaceId(of: DemoSettings.Space.screenBottom)
+    private let spaceId = TenMaxSdkConfiguration.AdSpaceIds.screenBottomAd
     
     private var water1: UIImageView!
     private var water2: UIImageView!
@@ -64,7 +64,18 @@ class ScreenBannerBottomViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tenMaxAd = TenMaxMobileSDK.shared().bannerAd(spaceId: spaceId, on: view, at: .bottom, self)
+        tenMaxAd = TenMaxMobileSDK.shared().bannerAd(
+            spaceId: spaceId,
+            on: view,
+            at: .bottom,
+            with: .init()
+                .listenSession(self)
+                .monitorInitiation({ spaces, error in
+                    if let error {
+                        self.view.makeToast("failed to initiate, due to \(error.localizedDescription)")
+                    }
+                })
+        )
         tenMaxAd?.show()
     }
     

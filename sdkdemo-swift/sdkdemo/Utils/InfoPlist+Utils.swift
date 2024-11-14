@@ -35,38 +35,6 @@ struct InfoPlistReader {
     }
 }
 
-struct ServiceIds {
-    private static let dictionary = Bundle.main.infoDictionary?["ServiceIds"] as? [String: Any] ?? [:]
-    
-    static var publisherId: String {
-        return dictionary["PublisherId"] as? String ?? ""
-    }
-    
-    static var interstitialAd: String {
-        return dictionary["InterstitialAd"] as? String ?? ""
-    }
-    
-    static var inlineAd: String {
-        return dictionary["InlineAd"] as? String ?? ""
-    }
-    
-    static var screenTopAd: String {
-        return dictionary["ScreenTopAd"] as? String ?? ""
-    }
-    
-    static var screenBottomAd: String {
-        return dictionary["ScreenBottomAd"] as? String ?? ""
-    }
-    
-    static var floatingAd: String {
-        return dictionary["FloatingAd"] as? String ?? ""
-    }
-    
-    static var all: [String: String] {
-        return dictionary as? [String: String] ?? [:]
-    }
-}
-
 struct AppConfiguration {
     static var bundleId: String {
         return InfoPlistReader.string(for: "CFBundleIdentifier") ?? ""

@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        TenMaxMobileSDK.initiate(configuration: DemoSettings.configuration) { spaces, error in
+        TenMaxMobileSDK.initiate(configuration: TenMaxSdkConfiguration.configuration) { spaces, error in
             if let error {
                 print (error)
             } else {
