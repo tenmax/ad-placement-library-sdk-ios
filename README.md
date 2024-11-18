@@ -220,6 +220,60 @@ class InlineBannerViewController: UIViewController {
 }
 ```
 
+[This is an experimental feature, cloud be changed in the later version.]
+You can let the inline AD to (aspect) full fill a container with fixed size.
+For example, the `inlineAdContainer` is a 300 x 200 fixed size container. 
+
+Then, when initiate the inline AD, you can configure it with a options to specify which container to fill.
+
+```swift
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    tenMaxAd = TenMaxMobileSDK.shared().inlineAd(
+        spaceId: "{inline-space-id}", 
+        on: inlineAd,
+        with: TenMaxInlineAdOptions()
+            .aspectFill(inlineAdContainer)
+    )
+    tenMaxAd?.show()
+}
+```
+
+Note, to use the aspect fill, you need to ensure the container's aspect ratio is the same as the AD.
+If the aspect ratio does not match, if after scale, the calculated width or height exceeds the container's
+width or height, the AD could be cropped. You can know the case happened by listen the event (see the [callbacks and delegate](#callback-and-delegate) section).
+
+### Floating AD
+
+You can let an AD keep floating on your app **until the app user close it**.
+To show the floating app, call `floatingAd` with the root-view.
+
+```swift
+import TenMaxMobileAdsSDK
+
+class FloatingAdViewController: UIViewController {
+
+    private var tenMaxAd: TenMaxAd?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tenMaxAd = TenMaxMobileSDK.shared().floatingAd(
+            spaceId: "{floating-space-id}", 
+            on: view,
+            options: TenMaxFloatingAdOptions()
+        )
+        tenMaxAd?.show()
+    }
+    
+    deinit {
+        tenMaxAd?.dispose()
+    }
+}
+
+```
+
 ## Advanced topics
 
 ### Timing and Naming Convention
