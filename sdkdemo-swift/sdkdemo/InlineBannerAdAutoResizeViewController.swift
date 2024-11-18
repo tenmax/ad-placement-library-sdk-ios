@@ -34,7 +34,7 @@ class InlineBannerAdAutoResizeViewController: UIViewController {
         
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(stackView)
         
@@ -46,11 +46,10 @@ class InlineBannerAdAutoResizeViewController: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -20)
         ])
         
         water1 = UIImageView.create(named: "water1")
