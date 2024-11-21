@@ -22,8 +22,12 @@ struct TenMaxSdkConfiguration {
             return ids["interstitial"] as? String ?? ""
         }
         
-        static var inlineAd: String {
-            return ids["inline"] as? String ?? ""
+        static var resizingInlineAd: String {
+            return ids["resizing inline"] as? String ?? ""
+        }
+        
+        static var aspectFillingInlineAd: String {
+            return ids["aspect-filling inline"] as? String ?? ""
         }
         
         static var screenTopAd: String {

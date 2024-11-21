@@ -6,12 +6,14 @@
 	<dict>
 		<key>AdSpace Identifiers</key>
 		<dict>
+			<key>aspect-filling inline</key>
+			<string>48b825faf8d14c65</string>
 			<key>floating</key>
 			<string>aab2ac22b5054b79</string>
-			<key>inline</key>
-			<string>f7a5d01133ef4c07</string>
 			<key>interstitial</key>
 			<string>77e9e6a018c14226</string>
+			<key>resizing inline</key>
+			<string>f7a5d01133ef4c07</string>
 			<key>screenBottom</key>
 			<string>c678e2d1b5c94342</string>
 			<key>screenTop</key>

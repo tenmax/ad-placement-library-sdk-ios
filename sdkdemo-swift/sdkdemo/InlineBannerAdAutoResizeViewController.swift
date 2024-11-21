@@ -11,7 +11,7 @@ import Toast
 
 class InlineBannerAdAutoResizeViewController: UIViewController {
 
-    private let spaceId = TenMaxSdkConfiguration.AdSpaceIds.inlineAd
+    private let spaceId = TenMaxSdkConfiguration.AdSpaceIds.resizingInlineAd
     
     private var water1: UIImageView!
     private var water2: UIImageView!

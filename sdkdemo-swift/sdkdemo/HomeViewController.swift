@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     private let testCases: [(String, Selector)] = [
         ("INTERSTITIAL AD", #selector(toInterstitialAd)),
         ("AUTO-RESIZING INLINE AD", #selector(toAutoResizeInlineAd)),
-        ("ASPECT-FILLING INLINE AD", #selector(toAspectFillInlineAd)),
         ("SCREEN TOP AD", #selector(toScreenTopBannerAd)),
         ("SCREEN BOTTOM AD", #selector(toScreenBottomBannerAd)),
         ("FLOATING AD", #selector(toFloatingAd)),

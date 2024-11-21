@@ -24,9 +24,6 @@ final class InlineBannerAdAspectFilliViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
     
-    private let enlargeButton = UIButton(type: .custom)
-    private let reduceButton = UIButton(type: .custom)
-    
     private var adFramerWidthConstraint: NSLayoutConstraint!
     private var adFramerHeightConstraint: NSLayoutConstraint!
     
@@ -52,9 +49,7 @@ final class InlineBannerAdAspectFilliViewController: UIViewController {
         water4 = createImageView(named: "water4")
         
         stackView.addArrangedSubview(water1)
-        stackView.addArrangedSubview(enlargeButton)
         stackView.addArrangedSubview(adFramer)
-        stackView.addArrangedSubview(reduceButton)
         stackView.addArrangedSubview(water2)
         stackView.addArrangedSubview(water3)
         stackView.addArrangedSubview(water4)
@@ -80,7 +75,7 @@ final class InlineBannerAdAspectFilliViewController: UIViewController {
         super.viewWillAppear(animated)
 
         tenMaxAd = TenMaxMobileSDK.shared().inlineAd(
-            spaceId: TenMaxSdkConfiguration.AdSpaceIds.inlineAd,
+            spaceId: TenMaxSdkConfiguration.AdSpaceIds.aspectFillingInlineAd,
             on: adContainer,
             with: TenMaxInlineAdOptions()
                 .aspectFill(adFramer)
@@ -127,40 +122,6 @@ extension InlineBannerAdAspectFilliViewController {
             adFramerWidthConstraint,
             adFramerHeightConstraint
         ])
-        
-        enlargeButton.setTitle("+", for: .normal)
-        enlargeButton.addTarget(self, action: #selector(enlargeAd), for: .touchUpInside)
-        enlargeButton.applyCustomStyle()
-        
-        reduceButton.setTitle("-", for: .normal)
-        reduceButton.addTarget(self, action: #selector(reduceAd), for: .touchUpInside)
-        reduceButton.applyCustomStyle()
-    }
-    
-    @objc func enlargeAd() {
-        let maxSize: CGFloat = 1200
-        let newWidth = min(adFramerWidthConstraint.constant + 30, maxSize)
-        let newHeight = min(adFramerHeightConstraint.constant + 30, maxSize)
-        
-        adFramerWidthConstraint.constant = newWidth
-        adFramerHeightConstraint.constant = newHeight
-        
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc func reduceAd() {
-        let minSize: CGFloat = 100
-        let newWidth = max(adFramerWidthConstraint.constant - 30, minSize)
-        let newHeight = max(adFramerHeightConstraint.constant - 30, minSize)
-        
-        adFramerWidthConstraint.constant = newWidth
-        adFramerHeightConstraint.constant = newHeight
-        
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
     }
 }
 
