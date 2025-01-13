@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "TenMaxMobileAdsSDK",
-            url: "https://github.com/tenmax/ad-placement-library-sdk-ios/releases/download/v1.0.12/TenMaxMobileAdsSDK.xcframework.zip",
-            checksum: "640b589d1904ec341e22a495e288e5d81b2019842548451730a46a4f18eac93d"
+            url: "https://github.com/tenmax/ad-placement-library-sdk-ios/releases/download/v1.0.13/TenMaxMobileAdsSDK.xcframework.zip",
+            checksum: "6aa273362f3c596d15957a9a8ec20df1a827f7481b4be12c453a61976985b065"
         ),
     ]
 )
