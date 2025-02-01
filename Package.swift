@@ -7,6 +7,7 @@ let package = Package(
     name: "TenMaxMobileAdsSDK",
     platforms: [
         .iOS(.v12),
+        .tvOS(.v15)
     ],
     products: [
         .library(name: "TenMaxMobileAdsSDK", targets: ["TenMaxMobileAdsSDK"])
