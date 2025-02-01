@@ -1,6 +1,6 @@
-# TenMax Mobile SDK for iOS
+# TenMax Mobile SDK for iOS/tvOS
 
-This repository provides the guideline and examples to demonstrate how to use TenMax Mobile SDK to show AD on your iOS app.
+This repository provides the guideline and examples to demonstrate how to use TenMax Mobile SDK to show AD on your iOS/tvOS app.
 
 ## Prerequisites
 
