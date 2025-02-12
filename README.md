@@ -115,7 +115,7 @@ If you do not initiate the SDK, every call to show ADs, the SDK would give you a
 
 ## Show ADs
 
-### Interstitial AD
+### Interstitial AD (iOS only)
 
 First, let show an interstitial AD (fullscreen AD) when you click the `Open Interstitial Ad` button. Assume your application's `HomeViewController` has three tabs: `InterstitialViewController`, `InlineBannerViewController`, and `ScreenBannerViewController`. In the `InterstitialViewController`, add following lines to show an interstitial AD when pressed the `Open Interstitial Ad` button:
 
@@ -157,7 +157,7 @@ class InterstitialViewController: UIViewController {
 
 The AD presentation is asynchronous, thus, please keep the `TenMaxAdDisposable` object returned from the `interstitialAd` method. You can dispose (cancel) the presentation when the user switch to other tabs by calling `disposable.dipose()`. The SDK would cancel the presentation (if not presented yet) or remove the presentation and then clean up resources to reduce the memory usage.
 
-### Banner AD
+### Banner AD (iOS only)
 
 You can show a banner AD on top of the screen or bottom of the screen. Even more, you can show both top and bottom banner on the same screen. However, the relationship between the banner and your app's UI is up to you.
 
@@ -191,7 +191,7 @@ class ScreenBannerViewController: UIViewController {
 
 The SDK would use this information to avoid duplication (see [Duplication Detection](#duplication-detection)).
 
-### Inline AD
+### Inline AD (supported iOS and tvOS)
 
 To embed an inline AD into your app, you need to add a container into your layout. The SDK process the AD view based on `Auto Layout` system, thus, you should provide the constraints to indicate the relationship between your UIs and AD container correctly.
 
@@ -244,7 +244,7 @@ Note, to use the aspect fill, you need to ensure the container's aspect ratio is
 If the aspect ratio does not match, if after scale, the calculated width or height exceeds the container's
 width or height, the AD could be cropped. You can know the case happened by listen the event (see the [callbacks and delegate](#callback-and-delegate) section).
 
-### Floating AD
+### Floating AD (iOS only)
 
 You can let an AD keep floating on your app **until the app user close it**.
 To show the floating app, call `floatingAd` with the root-view.
